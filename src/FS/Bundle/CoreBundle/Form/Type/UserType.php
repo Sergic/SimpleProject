@@ -27,13 +27,17 @@ class UserType extends AbstractType
             ->add('firstName', null, array('required' => false, 'render_optional_text' => false))
             ->add('lastName', null, array('required' => false, 'render_optional_text' => false))
             ->add('email', 'email', array('required' => false, 'render_optional_text' => false))
-            ->add('birthday', 'date', array(
-                'format' => 'yyyy MMM dd',
-                'required' => false,
-                'render_optional_text' => false
-            ))
-            ->add('shoeSize')
-        ;
+            ->add(
+                'birthday',
+                'date',
+                array(
+                    'format' => 'yyyy MMM dd',
+                    'required' => false,
+                    'render_optional_text' => false,
+                    'years' => range(date('Y') - 100, date('Y') - 5)
+                )
+            )
+            ->add('shoeSize');
     }
 
     /**
@@ -41,12 +45,13 @@ class UserType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults(
+            array(
                 'data_class' => $this->dataClass,
                 'csrf_protection' => false,
                 'validation_groups' => array('Default', 'registration'),
-            ))
-        ;
+            )
+        );
     }
 
     /**

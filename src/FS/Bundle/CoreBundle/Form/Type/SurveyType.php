@@ -24,11 +24,23 @@ class SurveyType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('iceCream', null, array('required' => false, 'render_optional_text' => false))
-            ->add('superHero', null, array('required' => false, 'render_optional_text' => false))
-            ->add('movieStar', null, array('required' => false, 'render_optional_text' => false))
-            ->add('worldEnd', null, array('required' => false, 'render_optional_text' => false))
-            ->add('superBowl', null, array('required' => false, 'render_optional_text' => false))
+            ->add('iceCream', null, array('required' => false, 'render_optional_text' => false,
+                'label' => 'What is Your Favorite Ice cream?'
+            ))
+            ->add('superHero', null, array('required' => false, 'render_optional_text' => false,
+                'label' => 'Who is your favorite superhero?'
+            ))
+            ->add('movieStar', null, array('required' => false, 'render_optional_text' => false,
+                'label' => 'Who is your favorite movie star?'
+            ))
+            ->add('worldEnd', 'date', array('required' => false, 'render_optional_text' => false,
+                'format' => 'yyyy MMM dd',
+                'years' => range(date('Y') - 100, date('Y') - 5),
+                'label' => 'When do you think the world will end?'
+            ))
+            ->add('superBowl', null, array('required' => false, 'render_optional_text' => false,
+                'label' => 'Who will win the super bowl this year?'
+            ))
         ;
     }
 
