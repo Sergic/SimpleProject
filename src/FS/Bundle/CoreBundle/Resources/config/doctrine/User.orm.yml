@@ -1,0 +1,59 @@
+FS\Bundle\CoreBundle\Entity\User:
+  table: user
+  type: entity
+  repositoryClass: FS\Bundle\CoreBundle\Repository\UserRepository
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    firstName:
+      column: first_name
+      type: string
+      length: 255
+      nullable: false
+    lastName:
+      column: last_name
+      type: string
+      length: 255
+      nullable: false
+    email:
+      column: email
+      type: string
+      length: 255
+      nullable: false
+    birthday:
+      column: birthday
+      type: date
+      nullable: false
+    shoeSize:
+      column: shoe_size
+      type: string
+      length: 255
+      nullable: false
+    active:
+      column: active
+      type: boolean
+      nullable: true
+    surveyed:
+      column: surveyed
+      type: boolean
+      nullable: true
+    createdAt:
+      type: datetime
+      column: created_at
+      gedmo:
+        timestampable:
+          on: create
+    updatedAt:
+      type: datetime
+      column: updated_at
+      nullable: true
+      gedmo:
+        timestampable:
+          on: update
+  oneToMany:
+    surveys:
+      targetEntity: FS\Bundle\CoreBundle\Entity\Survey
+      mappedBy: user

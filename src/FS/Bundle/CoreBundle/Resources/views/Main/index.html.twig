@@ -1,0 +1,26 @@
+{% extends 'FSCoreBundle::layout.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        <div id="html-block" class="col-md-6 col-md-offset-3">
+            {% if form %}
+                {% include 'FSCoreBundle:Form:form.html.twig' %}
+            {% elseif prize %}
+                {% include 'FSCoreBundle:Main:prize.html.twig' %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block dynamic_js %}
+<script>
+    survey.timer.start = {{ timer }};
+    {% if prize %}
+    survey.timer.stop = true;
+    $('#site-timer').empty().text((survey.timer.start/1000).toFixed(1));
+    {% endif %}
+    (function($){
+        survey.init();
+    })($);
+</script>
+{% endblock %}

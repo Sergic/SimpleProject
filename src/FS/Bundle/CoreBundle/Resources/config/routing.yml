@@ -1,0 +1,15 @@
+fs_core_homepage:
+    path:  /
+    defaults: { _controller: FSCoreBundle:Main:index }
+
+fs_core_step_one:
+    path:  /step/one
+    defaults: { _controller: FSCoreBundle:Main:stepOne }
+    requirements:
+        _method:  POST
+
+fs_core_step_two:
+    path:  /step/two
+    defaults: { _controller: FSCoreBundle:Main:stepTwo }
+    requirements:
+        _method:  POST

@@ -1,0 +1,4 @@
+fs_core:
+    resource: "@FSCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+

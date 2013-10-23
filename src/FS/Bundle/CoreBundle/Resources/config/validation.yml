@@ -1,0 +1,30 @@
+FS\Bundle\CoreBundle\Entity\User:
+    properties:
+        firstName:
+            - NotBlank: { groups: ["registration"] }
+            - Length:   { min: 3, max: 50 }
+        lastName:
+            - NotBlank: { groups: ["registration"] }
+            - Length:   { min: 3, max: 50 }
+        email:
+            - NotBlank: { groups: ["registration"] }
+            - Email:    { message: "Invalid email", checkMX: false, groups: ["registration"] }
+#            @TODO: change checkMX option to "true" in production!
+#            @TODO: find how to change this option only for test environment
+        birthday:
+            - NotBlank: { groups: ["registration"] }
+        shoeSize:
+            - NotBlank: { groups: ["registration"] }
+
+FS\Bundle\CoreBundle\Entity\Survey:
+    properties:
+        iceCream:
+            - NotBlank: { groups: ["survey"] }
+        superHero:
+            - NotBlank: { groups: ["survey"] }
+        movieStar:
+            - NotBlank: { groups: ["survey"] }
+        worldEnd:
+            - NotBlank: { groups: ["survey"] }
+        superBowl:
+            - NotBlank: { groups: ["survey"] }

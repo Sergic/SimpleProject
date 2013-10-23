@@ -1,0 +1,8 @@
+<form id="form-data" action="{{ path(route_form) }}" method="post" class="form-horizontal" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <div class="form-actions">
+        <button id="submit-event" type="button" class="btn btn-primary btn-lg" data-save="{{ form_name }}">Save</button>
+        &nbsp;
+        <button type="reset" class="btn btn-danger btn-lg">Cancel</button>
+    </div>
+</form>

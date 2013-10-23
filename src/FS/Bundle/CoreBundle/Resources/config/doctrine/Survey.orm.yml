@@ -1,0 +1,60 @@
+FS\Bundle\CoreBundle\Entity\Survey:
+  table: survey
+  type: entity
+  repositoryClass: FS\Bundle\CoreBundle\Repository\SurveyRepository
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    iceCream:
+      column: ice_cream
+      type: string
+      length: 255
+      nullable: false
+    superHero:
+      column: super_hero
+      type: string
+      length: 255
+      nullable: false
+    movieStar:
+      column: movie_star
+      type: string
+      length: 255
+      nullable: false
+    worldEnd:
+      column: world_end
+      type: date
+      nullable: false
+    superBowl:
+      column: super_bowl
+      type: string
+      length: 255
+      nullable: false
+    active:
+      column: active
+      type: boolean
+      nullable: true
+    createdAt:
+      type: datetime
+      column: created_at
+      gedmo:
+        timestampable:
+          on: create
+    updatedAt:
+      type: datetime
+      column: updated_at
+      nullable: true
+      gedmo:
+        timestampable:
+          on: update
+  manyToOne:
+    user:
+      targetEntity: FS\Bundle\CoreBundle\Entity\User
+      inversedBy: surveys
+      cascade: ["persist", "merge"]
+      joinColumns:
+        user_id:
+          referencedColumnName: id
+          onDelete: CASCADE

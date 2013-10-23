@@ -1,0 +1,15 @@
+parameters:
+    fs_core.form.type.user.class: FS\Bundle\CoreBundle\Form\Type\UserType
+    fs_core.form.type.survey.class: FS\Bundle\CoreBundle\Form\Type\SurveyType
+
+services:
+    fs_core.form.type.user:
+        class: %fs_core.form.type.user.class%
+        arguments: ['%fs_core.entity.user.class%']
+        tags:
+          - { name: form.type, alias: ft_core_user }
+    fs_core.form.type.survey:
+        class: %fs_core.form.type.survey.class%
+        arguments: ['%fs_core.entity.survey.class%']
+        tags:
+          - { name: form.type, alias: ft_core_survey }

@@ -1,0 +1,18 @@
+#user_birthday_control_group .col-lg-9, #survey_worldEnd_control_group .col-lg-9 {
+    width: 120px;
+}
+
+.form-actions {
+    background-color: #F1F1F1;
+    border-bottom: 3px solid #DDDDDD;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center;
+}
+.centered{
+    text-align: center;
+}
+.centered img{
+    margin: 0 auto;
+    display: block;
+}
